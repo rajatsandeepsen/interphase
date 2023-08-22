@@ -35,20 +35,22 @@ def returnTypescript(x:any)->str:
         return "boolean"
     elif typed == type(None):
         return "null"
-    
-    
     # add more types here
     else :
         return ''
 
 def returner(*set:any) -> str:
     return ' '.join(set)
+
 def typeBody(x, y):
     text = ''
     space = "\t" * y
+    bracket_space = "\t" * (y - 1)
+
     if isDist(x):
         flag = False
         text += "{"
+
         for key, value in x.items():
             if not flag:
                 text += "\n"
@@ -60,7 +62,8 @@ def typeBody(x, y):
                 text += returner(space + key + ":", typeBody(value[0], y + 1) + "[]" + ",\n")
             else:
                 text += returner(space + key + ":",returnTypescript(value) + ",\n")
-        text += iF(flag, space + "}", "}")
+
+        text += iF(flag, bracket_space + "}", "}")
 
     else:
         if isArray(x):

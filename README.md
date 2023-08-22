@@ -36,3 +36,8 @@ dist/
 $ pip install dist/meowpkg-0.0.1.whl
 $ pip install dist/meowpkg-0.0.1.tar.gz
 ```
+
+upload to pypi
+```bash
+$ python -m twine upload --repository pypi dist/*
+```
