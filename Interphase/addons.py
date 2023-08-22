@@ -8,13 +8,13 @@ def link(uri, label=None):
     return escape_mask.format(parameters, uri, label)
 
 def printError(text:any):
-    print("\033[91m " + text + " \033[0m")
+    print("\033[91m " + str(text) + " \033[0m")
 
 def printWarning(text:any):
-    print("\033[93m " + text + " \033[0m")
+    print("\033[93m " + str(text) + " \033[0m")
 
 def printInfo(text:any):
-    print("\033[92m " + text + " \033[0m")
+    print("\033[92m " + str(text) + " \033[0m")
 
 def iF(condition:bool, first:any, second:any):
     if condition:

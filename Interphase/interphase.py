@@ -1,7 +1,7 @@
 __all__ = ['Interphase']
 import os
 from .addons import link, printError, printWarning, printInfo, iF
-from .module import typeHead, typeBody
+from .module import typeHead, typeBody, returner
 # import traceback
 
 class Interphase:
@@ -25,7 +25,7 @@ class Interphase:
             return
         
         header = typeHead(typeName, export, False) # interface is not supported yet (False)
-        text = typeBody(data, 0)
+        text = typeBody(data, 1)
 
         # traace_stack = traceback.extract_stack()
         # traace_frame = traace_stack[-2]
@@ -38,9 +38,11 @@ class Interphase:
 
         try:
             file = open(new_path, "a")
-            file.write(header + text + "\n\n")
+            file.write(returner(header, text, "\n\n"))
             file.close()
         except Exception as e:
-            print("\033[2;31;43m " + e + " \033[0;0m")
+            printError("Error: " + str(e))
+            return
         
         printInfo("Type Generated at " + link(new_path))
+        return typeName

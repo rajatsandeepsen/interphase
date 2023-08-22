@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Interphase"
+dynamic = ["version"]
+authors = [
+    {name = "Rajat Sandeep", email = "rajatsandeepsen1839@gmail.com"},
+]
+description = "Package for genarating typescript interface with git submodule folder structure"
+readme = "README.md"
+requires-python = ">=3.7"
+keywords = ["one", "two"]
