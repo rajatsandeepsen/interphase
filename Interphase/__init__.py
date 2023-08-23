@@ -1,1 +1,1 @@
-from .interphase import Interphase
+from interphase.interphase import typewriter

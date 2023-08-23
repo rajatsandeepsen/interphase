@@ -38,6 +38,25 @@ def returnTypescript(x:any)->str:
     # add more types here
     else :
         return ''
+    
+# python 3.10 only
+# def findType(x:any)->str:
+#     match x:
+#         case str():
+#             return "string"
+#         case int():
+#             return "number"
+#         case float():
+#             return "number"
+#         case function():
+#             return "() => void"
+#         case bool():
+#             return "boolean"
+#         case None:
+#             return "null"
+#         # add more types here
+#         case _:
+#             return ''
 
 def returner(*set:any) -> str:
     return ' '.join(set)

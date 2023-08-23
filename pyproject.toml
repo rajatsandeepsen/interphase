@@ -3,9 +3,8 @@ requires = ["setuptools", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "Interphase"
-# dynamic = ["version"]
-version = "0.0.1"
+name = "interphase"
+dynamic = ["version", "dependencies"]
 authors = [
     {name = "Rajat Sandeep", email = "rajatsandeepsen1839@gmail.com"},
 ]
@@ -20,5 +19,5 @@ classifiers = [
 keywords = ["python", "api", "backend", "typescript", "interface", "git", "submodule"]
 
 [project.urls]
-"Homepage" = "https://github.com/rajatsandeepsen/Interphase"
-"Bug Tracker" = "https://github.com/rajatsandeepsen/Interphase/isssues"
+"Homepage" = "https://github.com/rajatsandeepsen/interphase"
+"Bug Tracker" = "https://github.com/rajatsandeepsen/interphase/isssues"

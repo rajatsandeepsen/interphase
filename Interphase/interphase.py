@@ -1,10 +1,10 @@
-__all__ = ['Interphase']
+__all__ = ['typewriter']
 import os
 from .addons import link, printError, printWarning, printInfo, iF
 from .module import typeHead, typeBody, returner
 # import traceback
 
-class Interphase:
+class typewriter:
     def __init__(self, base_directiory:str, d_ts:bool = True) -> None:
         if base_directiory == "":
             printWarning("Warning: Base Directory is Empty String")
@@ -13,9 +13,9 @@ class Interphase:
         self.d_ts = d_ts
 
     def __str__(self):
-        return f"<class 'Interphase', base directory: {link(self.directiory)}/[*].{iF(self.d_ts, 'd.ts', 'ts')}>"
+        return f"<class 'Typewriter', base directory: {link(self.directiory)}/[*].{iF(self.d_ts, 'd.ts', 'ts')}>"
     
-    def write(self, file_name:str, typeName:str, data:any, export:bool=True) -> None: # interface is not supported yet
+    def write(self, file_name:str, typeName:str, data:any, export:bool=True, interface:bool=False) -> None: # interface is not supported yet
         if typeName == "":
             printError("Error: Type Name is Empty String")
             return
@@ -24,7 +24,7 @@ class Interphase:
             printError("Error: File Name is Empty String")
             return
         
-        header = typeHead(typeName, export, False) # interface is not supported yet (False)
+        header = typeHead(typeName, export, interface) # interface is not supported yet (False)
         text = typeBody(data, 1)
 
         # traace_stack = traceback.extract_stack()
