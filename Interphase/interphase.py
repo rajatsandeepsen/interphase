@@ -4,18 +4,22 @@ from .addons import link, printError, printWarning, printInfo, iF
 from .module import typeHead, typeBody, returner
 # import traceback
 
+def getPath(path:str):
+    return os.path.abspath(path)
+
 class typewriter:
     def __init__(self, base_directiory:str, d_ts:bool = True) -> None:
-        if base_directiory == "":
-            printWarning("Warning: Base Directory is Empty String")
 
-        self.directiory = base_directiory
+        if base_directiory == "":
+            printWarning("Warning: Base Directory is Empty String || Use getPath() method")
+
+        self.directiory = getPath(base_directiory)
         self.d_ts = d_ts
 
     def __str__(self):
         return f"<class 'Typewriter', base directory: {link(self.directiory)}/[*].{iF(self.d_ts, 'd.ts', 'ts')}>"
     
-    def write(self, file_name:str, typeName:str, data:any, export:bool=True, interface:bool=False) -> None: # interface is not supported yet
+    def write(self, file_name:str, typeName:str, data:any, export:bool=True, interface:bool=False) -> None:
         if typeName == "":
             printError("Error: Type Name is Empty String")
             return
